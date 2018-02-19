@@ -92,6 +92,16 @@ class CasManager {
 			(int) $this->config['cas_port'],
 			$this->config['cas_uri'], $this->config['cas_control_session'] );
 
+		// Register Post Authenticate Callback
+        if ( $this->config['cas_post_authenticate_callback'] ) {
+            phpCAS::setSingleSignoutCallback($this->config['cas_post_authenticate_callback']);
+        }
+
+        // Register Single Signout Callback
+        if ( $this->config['cas_single_signout_callback'] ) {
+            phpCAS::setSingleSignoutCallback($this->config['cas_single_signout_callback']);
+        }
+
 		if ( $this->config['cas_enable_saml'] ) {
 			// Handle SAML logout requests that emanate from the CAS host exclusively.
 			// Failure to restrict SAML logout requests to authorized hosts could

@@ -166,5 +166,25 @@ return [
     | This should only be used for developmental purposes.  getAttributes()
     | will return null in this condition.
      */
-    'cas_masquerade'      => env('CAS_MASQUERADE', '')
+    'cas_masquerade'      => env('CAS_MASQUERADE', ''),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Callback function will be called after user authentication is successful
+    | with ticket as an argument
+     */
+    'cas_post_authenticate_callback'    => function($ticket) {
+
+    },
+
+    /*
+    |--------------------------------------------------------------------------
+    | Callback function will be called user loged out orif CAS server made
+    | Single Sign Out request with ticket as an argument
+     */
+    'cas_single_signout_callback'    => function($ticket) {
+
+    },
+
+
 ];
